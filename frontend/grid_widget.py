@@ -33,10 +33,10 @@ class GridWidget(QWidget):
                 elif self.path and (r, c) in self.path:
                     color = QColor("#316289")
                 painter.fillRect(rect, color)
-                painter.setPen(QPen(Qt.gray))
+                painter.setPen(QPen(Qt.black))
                 painter.drawRect(rect)
         if self.path and len(self.path) > 1:
-            pen = QPen(QColor("#FFFFFF"), 4)
+            pen = QPen(QColor("#FFFFFF"), 2)
             painter.setPen(pen)
             for i in range(len(self.path) - 1):
                 r1, c1 = self.path[i]
@@ -68,7 +68,7 @@ class GridWidget(QWidget):
             node.is_end = True
             self.end = node
             self.mode = 'obstacle'
-            self.main_window.info.setText("Haz clic para agregar obstáculos (haz clic en 'Buscar camino' para terminar)")
+            self.main_window.info.setText("Haz clic para agregar obstáculos")
             self.main_window.btn_path.setEnabled(True)
         elif self.mode == 'obstacle':
             if node == self.start or node == self.end:
